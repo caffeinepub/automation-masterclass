@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Sky blue palette — OKLCH */
+    --background: 0.97 0.018 220;
+    --foreground: 0.155 0.03 263;
+    --card: 1 0 0;
+    --card-foreground: 0.155 0.03 263;
+    --popover: 1 0 0;
+    --popover-foreground: 0.155 0.03 263;
+    --primary: 0.38 0.19 264;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.94 0.028 220;
+    --secondary-foreground: 0.155 0.03 263;
+    --muted: 0.94 0.025 220;
+    --muted-foreground: 0.55 0.04 230;
+    --accent: 0.75 0.17 76;
+    --accent-foreground: 0.155 0.03 263;
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.88 0.05 220;
+    --input: 0.88 0.05 220;
+    --ring: 0.38 0.19 264;
+    --chart-1: 0.38 0.19 264;
+    --chart-2: 0.75 0.17 76;
+    --chart-3: 0.62 0.14 252;
+    --chart-4: 0.52 0.16 264;
+    --chart-5: 0.68 0.1 245;
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.155 0.03 263;
+    --sidebar-primary: 0.38 0.19 264;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.025 220;
+    --sidebar-accent-foreground: 0.155 0.03 263;
+    --sidebar-border: 0.88 0.05 220;
+    --sidebar-ring: 0.38 0.19 264;
+    --blue: 0.38 0.19 264;
+    --blue-dark: 0.28 0.13 230;
+
+    /* Sky section backgrounds (used in inline styles) */
+    --sky-bg-1: #e8f4fd;
+    --sky-bg-2: #c9e8f8;
+    --sky-white: #f8fcff;
+    --sky-mid: #eef7fe;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Satoshi", system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #e8f4fd 0%, #c9e8f8 40%, #eef7fe 100%);
+  }
+}
+
+/* ── keyframes ───────────────────────────────────── */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+  12% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0.3);
+  }
+  25% {
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cloud drift animations */
+@keyframes cloudDrift1 {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(60px);
+  }
+}
+@keyframes cloudDrift2 {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-45px);
+  }
+}
+@keyframes cloudDrift3 {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(35px);
+  }
+}
+
+.cloud-drift-1 {
+  animation: cloudDrift1 20s ease-in-out infinite alternate;
+}
+.cloud-drift-2 {
+  animation: cloudDrift2 25s ease-in-out infinite alternate;
+}
+.cloud-drift-3 {
+  animation: cloudDrift3 15s ease-in-out infinite alternate;
+}
+
+/* Nav drawer slide */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav-drawer {
+  animation: slideDown 0.22s ease;
+}
+
+/* Reveal scroll effect */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* CTA amber button */
+.btn-amber {
+  background-color: #f59e0b;
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  animation: cta-pulse 4s ease-in-out infinite;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+.btn-amber:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.btn-amber:active {
+  transform: translateY(1px);
+}
+
+/* Glassmorphism nav */
+.nav-glass {
+  background: rgba(248, 252, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(191, 219, 254, 0.6);
+  box-shadow: 0 1px 16px rgba(30, 64, 175, 0.07);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.12);
+}
+
+/* Gradient text utility */
+.grad-text {
+  background: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sky card style */
+.sky-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(191, 219, 254, 0.7);
+  box-shadow: 0 2px 20px rgba(30, 64, 175, 0.06);
+}
+
+/* Stat highlight */
+.stat-number {
+  background: linear-gradient(135deg, #1e40af, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
