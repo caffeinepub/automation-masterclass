@@ -1,16 +1,14 @@
 const nodes = [
   { id: "trigger", label: "TRIGGER", sub: "User Event", x: 60, y: 60 },
-  { id: "uipath", label: "UiPath Bot", sub: "RPA Engine", x: 220, y: 60 },
-  { id: "n8n", label: "N8N Flow", sub: "Zero Code", x: 380, y: 60 },
-  { id: "ai", label: "AI Agent", sub: "Decision", x: 540, y: 60 },
-  { id: "output", label: "OUTPUT", sub: "Automated", x: 700, y: 60 },
+  { id: "uipath", label: "UiPath Bot", sub: "RPA Engine", x: 247, y: 60 },
+  { id: "ai", label: "AI Agent", sub: "Decision", x: 434, y: 60 },
+  { id: "output", label: "OUTPUT", sub: "Automated", x: 621, y: 60 },
 ];
 
 const edges = [
   { from: 0, to: 1, key: "e0-1" },
   { from: 1, to: 2, key: "e1-2" },
   { from: 2, to: 3, key: "e2-3" },
-  { from: 3, to: 4, key: "e3-4" },
 ];
 
 export default function WorkflowDiagram() {
@@ -20,7 +18,7 @@ export default function WorkflowDiagram() {
         aria-hidden="true"
         viewBox="0 0 780 120"
         className="w-full max-w-3xl mx-auto"
-        style={{ minWidth: "500px" }}
+        style={{ minWidth: "400px" }}
       >
         {/* Animated connecting lines */}
         {edges.map(({ from, to, key }, i) => {

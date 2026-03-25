@@ -26,6 +26,7 @@ import BeforeAfterTable from "./components/BeforeAfterTable";
 import CloudBackground from "./components/CloudBackground";
 import CountdownTimer from "./components/CountdownTimer";
 import HeroPipeline from "./components/HeroPipeline";
+import IsometricDiagram from "./components/IsometricDiagram";
 import LiveAutomationFeed from "./components/LiveAutomationFeed";
 import TechOrbit from "./components/TechOrbit";
 import WorkflowAnimation from "./components/WorkflowAnimation";
@@ -209,7 +210,7 @@ function Navbar() {
               className="text-xs font-semibold"
               style={{ color: "#1E40AF" }}
             >
-              &#8599; caait.vercel.app
+              &#8599; Visit our official website
             </span>
           </a>
         </div>
@@ -263,7 +264,6 @@ const HERO_WORDS = [
   { word: "When", accent: false },
   { word: "AI", accent: true },
   { word: "Stops", accent: false },
-  { word: "—", accent: false },
   { word: "Real", accent: false },
   { word: "Automation", accent: true },
   { word: "Begins.", accent: false },
@@ -396,7 +396,7 @@ function HeroSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 mt-6 lg:mt-0"
           >
             <LiveAutomationFeed />
             <div
@@ -671,9 +671,16 @@ function WhatWeBuildSection() {
           </div>
         </div>
 
+        {/* 3D Isometric Automation Diagram */}
+        <div className="reveal mt-6">
+          <div className="sky-card rounded-2xl p-6">
+            <IsometricDiagram />
+          </div>
+        </div>
+
         <div
           ref={calloutRef}
-          className="reveal sky-card rounded-2xl p-6 sm:p-8 text-center mt-10"
+          className="reveal sky-card rounded-2xl p-6 sm:p-8 text-center mt-4"
         >
           <p
             className="text-base sm:text-lg italic leading-relaxed"
@@ -735,14 +742,17 @@ function SpeakersSection() {
               className="text-sm font-semibold mb-4"
               style={{ color: "#1E40AF" }}
             >
-              Concept Creator, CAA IT
+              Concept Creator
             </p>
             <p
               className="text-base leading-relaxed"
               style={{ color: "#475569" }}
             >
-              Bridging 19+ years of CA expertise with modern business automation
-              &mdash; for 1,200+ businesses across India.
+              An entrepreneur at heart &mdash; wired to spot what others
+              overlook. Parth brings a rare blend of business psychology,
+              marketing instinct, and the relentless ability to identify market
+              gaps before they become obvious. He doesn&apos;t just build
+              businesses &mdash; he architects thinking systems.
             </p>
           </div>
 

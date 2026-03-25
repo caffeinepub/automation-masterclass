@@ -55,7 +55,7 @@ const NODES: WFNode[] = [
   },
   {
     id: "actionB",
-    label: "Workflow — N8N",
+    label: "Agentic AI Flow",
     type: "rect",
     x: 250,
     y: 328,
@@ -145,7 +145,7 @@ export default function WorkflowAnimation() {
         className="w-full h-auto"
         style={{ maxWidth: 400 }}
         role="img"
-        aria-label="Automation workflow diagram showing trigger, logic check, decision, actions and result"
+        aria-label="Automation workflow diagram showing trigger, logic check, decision, UiPath bot, Agentic AI flow and result"
       >
         <defs>
           <filter id="wf-glow-blue">

@@ -61,70 +61,6 @@ const TECHS = [
     lightColor: "oklch(0.94 0.04 245)",
   },
   {
-    name: "N8N",
-    icon: (
-      <svg
-        viewBox="0 0 48 48"
-        fill="none"
-        className="w-12 h-12"
-        aria-hidden="true"
-      >
-        <rect width="48" height="48" rx="12" fill="oklch(0.95 0.06 150)" />
-        <circle cx="12" cy="24" r="4" fill="oklch(0.55 0.18 155)" />
-        <circle cx="24" cy="14" r="4" fill="oklch(0.55 0.18 155)" />
-        <circle cx="36" cy="24" r="4" fill="oklch(0.55 0.18 155)" />
-        <circle cx="24" cy="34" r="4" fill="oklch(0.55 0.18 155)" />
-        <line
-          x1="16"
-          y1="24"
-          x2="20"
-          y2="18"
-          stroke="oklch(0.55 0.18 155)"
-          strokeWidth="1.5"
-          opacity="0.6"
-        />
-        <line
-          x1="28"
-          y1="18"
-          x2="32"
-          y2="22"
-          stroke="oklch(0.55 0.18 155)"
-          strokeWidth="1.5"
-          opacity="0.6"
-        />
-        <line
-          x1="32"
-          y1="26"
-          x2="28"
-          y2="30"
-          stroke="oklch(0.55 0.18 155)"
-          strokeWidth="1.5"
-          opacity="0.6"
-        />
-        <line
-          x1="20"
-          y1="30"
-          x2="16"
-          y2="26"
-          stroke="oklch(0.55 0.18 155)"
-          strokeWidth="1.5"
-          opacity="0.6"
-        />
-      </svg>
-    ),
-    tagline: "Visual Workflow Automation",
-    description:
-      "Connect any apps and services with a visual drag-and-drop editor. Zero code required. Trigger workflows automatically when events happen.",
-    capabilities: [
-      "Connect 400+ apps and services",
-      "Zero-code visual editor",
-      "Real-time event triggers",
-      "Custom logic with conditions",
-    ],
-    color: "oklch(0.55 0.18 155)",
-    lightColor: "oklch(0.94 0.05 150)",
-  },
-  {
     name: "Agentic AI",
     icon: (
       <svg
@@ -192,7 +128,7 @@ export default function TechStackSection() {
             className="font-display text-3xl md:text-4xl font-bold uppercase"
             style={{ color: "oklch(0.22 0.05 255)" }}
           >
-            Three tools.{" "}
+            Two tools.{" "}
             <span style={{ color: "oklch(0.50 0.15 245)" }}>
               Infinite automation.
             </span>
@@ -201,8 +137,8 @@ export default function TechStackSection() {
             className="mt-4 font-body text-base max-w-xl mx-auto"
             style={{ color: "oklch(0.42 0.05 240)" }}
           >
-            Watch all three work together live — in a single seamless workflow
-            built from scratch during the session.
+            Watch both work together live — in a single seamless workflow built
+            from scratch during the session.
           </p>
         </motion.div>
 
@@ -318,8 +254,8 @@ export default function TechStackSection() {
             className="font-display text-base md:text-lg font-semibold"
             style={{ color: "oklch(0.28 0.08 248)" }}
           >
-            🔗 Combined Power: UiPath handles the screens → N8N orchestrates the
-            flow → AI makes the decisions.
+            🔗 Combined Power: UiPath handles the screens → Agentic AI makes the
+            decisions. One chain.
             <span style={{ color: "oklch(0.50 0.15 245)" }}>
               {" "}
               One chain. Fully automated.

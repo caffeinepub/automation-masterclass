@@ -140,8 +140,8 @@ export default function HudGraphic() {
       {/* Labels around the ring */}
       {[
         { label: "UiPath", angle: -0.4, r: 150 },
-        { label: "N8N", angle: 1.2, r: 148 },
-        { label: "AI Agent", angle: 2.7, r: 145 },
+        { label: "AI Agent", angle: 1.2, r: 148 },
+        { label: "RPA Core", angle: 2.7, r: 145 },
       ].map(({ label, angle, r }) => {
         const cx = 192;
         const cy = 192;

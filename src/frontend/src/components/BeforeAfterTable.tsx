@@ -33,9 +33,9 @@ const ROWS = [
       sub: "6 apps, 1 person, endless clicks",
     },
     after: {
-      icon: "⚡",
-      title: "N8N Connects Everything",
-      sub: "Auto-sync across all systems",
+      icon: "🧠",
+      title: "Agentic AI Orchestrates",
+      sub: "Smart decisions across all systems",
     },
   },
   {

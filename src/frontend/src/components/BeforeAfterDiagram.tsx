@@ -12,9 +12,9 @@ const AFTER_ROWS = [
   { icon: "🤖", label: "RPA Bot Handles It", detail: "Runs in minutes" },
   { icon: "🔗", label: "RPA Bridges the Gap", detail: "No API? No problem" },
   {
-    icon: "⚡",
-    label: "N8N Connects Everything",
-    detail: "Auto-sync, zero effort",
+    icon: "🧠",
+    label: "Agentic AI Decides",
+    detail: "Smart routing, zero effort",
   },
   {
     icon: "✅",

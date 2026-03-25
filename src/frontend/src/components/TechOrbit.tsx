@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
 const ORBIT_NODES = [
-  { id: "uipath", label: "UiPath", emoji: "🤖", color: "#1E40AF", angle: 270 },
-  { id: "n8n", label: "N8N", emoji: "⚡", color: "#F59E0B", angle: 30 },
-  { id: "ai", label: "Agentic AI", emoji: "🧠", color: "#7C3AED", angle: 150 },
+  {
+    id: "uipath",
+    label: "UiPath RPA",
+    emoji: "🤖",
+    color: "#1E40AF",
+    angle: 210,
+  },
+  { id: "ai", label: "Agentic AI", emoji: "🧠", color: "#7C3AED", angle: 330 },
 ];
 
 const ORBIT_R = 110;
@@ -65,7 +70,7 @@ export default function TechOrbit() {
         className="w-full h-auto"
         style={{ maxWidth: 380, maxHeight: 380 }}
         role="img"
-        aria-label="Technology orbit: UiPath, N8N, Agentic AI orbiting an Automation Engine hub"
+        aria-label="Technology orbit: UiPath RPA and Agentic AI orbiting an Automation Engine hub"
       >
         {/* Orbit ring */}
         <circle

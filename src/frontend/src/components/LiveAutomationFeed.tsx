@@ -8,8 +8,8 @@ const EVENTS = [
     color: "#1E40AF",
   },
   {
-    icon: "⚡",
-    text: "N8N workflow triggered: HR onboarding",
+    icon: "🧠",
+    text: "Agentic AI triggered: HR onboarding flow",
     time: "1.1s",
     color: "#7C3AED",
   },
@@ -147,9 +147,9 @@ export default function LiveAutomationFeed() {
         </span>
       </div>
 
-      {/* Wasted hours counter */}
+      {/* Wasted hours counter — hidden on small screens to save space */}
       <div
-        className="px-5 py-4 flex items-start gap-4"
+        className="hidden sm:flex px-5 py-4 items-start gap-4"
         style={{ borderBottom: "1px solid rgba(191,219,254,0.4)" }}
       >
         <div className="flex-1">
@@ -161,7 +161,7 @@ export default function LiveAutomationFeed() {
           </p>
           <div className="flex items-baseline gap-1.5">
             <span
-              className="text-3xl font-extrabold font-display tabular-nums"
+              className="text-3xl font-extrabold tabular-nums"
               style={{
                 color: "#DC2626",
                 textShadow: "0 0 20px rgba(220,38,38,0.25)",
@@ -213,11 +213,14 @@ export default function LiveAutomationFeed() {
       </div>
 
       {/* Event feed */}
-      <div className="px-4 py-3 space-y-2" style={{ minHeight: 200 }}>
+      <div
+        className="px-3 sm:px-4 py-2 sm:py-3 space-y-1.5 sm:space-y-2"
+        style={{ minHeight: 140 }}
+      >
         {feed.map((event, i) => (
           <div
             key={event.id}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl"
+            className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-xl"
             style={{
               background: i === 0 ? `${event.color}08` : "transparent",
               border:
@@ -225,12 +228,11 @@ export default function LiveAutomationFeed() {
                   ? `1px solid ${event.color}25`
                   : "1px solid transparent",
               opacity: 1 - i * 0.15,
-              transform: i === 0 ? "none" : undefined,
               transition: "all 0.4s ease",
               boxShadow: i === 0 ? `0 0 12px ${event.color}12` : "none",
             }}
           >
-            <span className="text-base">{event.icon}</span>
+            <span className="text-sm sm:text-base">{event.icon}</span>
             <span
               className="flex-1 text-xs font-semibold"
               style={{ color: "#1E3A5F" }}
@@ -238,7 +240,7 @@ export default function LiveAutomationFeed() {
               {event.text}
             </span>
             <span
-              className="text-xs font-mono px-1.5 py-0.5 rounded"
+              className="text-xs font-mono px-1 sm:px-1.5 py-0.5 rounded"
               style={{
                 background: `${event.color}10`,
                 color: event.color,
@@ -253,7 +255,7 @@ export default function LiveAutomationFeed() {
 
       {/* Footer stats */}
       <div
-        className="px-5 py-3 flex items-center justify-between"
+        className="px-5 py-2.5 flex items-center justify-between"
         style={{ borderTop: "1px solid rgba(191,219,254,0.4)" }}
       >
         <div className="flex items-center gap-1.5">
@@ -273,6 +275,15 @@ export default function LiveAutomationFeed() {
           ⚡ See this live — April 12
         </span>
       </div>
+
+      {/* Disclaimer */}
+      <p
+        className="text-center italic py-2 px-4"
+        style={{ color: "#94A3B8", fontSize: 10 }}
+      >
+        * Illustrative data — for visual demonstration &amp; better
+        understanding only
+      </p>
     </div>
   );
 }
