@@ -32,7 +32,7 @@ import TechOrbit from "./components/TechOrbit";
 import WorkflowAnimation from "./components/WorkflowAnimation";
 import { useRegister, useRemainingSeats } from "./hooks/useQueries";
 
-const RAZORPAY_URL = "https://razorpay.com";
+const RAZORPAY_URL = "https://rzp.io/rzp/automationwebinar";
 
 // ── helpers ──────────────────────────────────────────────────────────────
 function useReveal() {
@@ -170,7 +170,7 @@ function Navbar() {
             data-ocid="nav.primary_button"
             style={{ boxShadow: "0 0 16px rgba(245,158,11,0.35)" }}
           >
-            Register Now — ₹196
+            Register Now · ₹196
           </button>
 
           {/* CENTER: nav links */}
@@ -258,7 +258,7 @@ function Navbar() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 1 — HERO
+// SECTION 1 - HERO
 // ═══════════════════════════════════════════════════════════
 const HERO_WORDS = [
   { word: "When", accent: false },
@@ -293,7 +293,7 @@ function HeroSection() {
               style={{ background: "rgba(30,64,175,0.9)", color: "white" }}
             >
               <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              Live Webinar &mdash; April 12, 2026
+              Live Webinar · April 12, 2026
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold leading-tight mb-6">
@@ -324,7 +324,7 @@ function HeroSection() {
             >
               No API? No problem.
               <br />
-              If you can think it logically, step by step &mdash;
+              If you can think it logically, step by step:
               <br />
               <strong style={{ color: "#0F172A" }}>
                 we will automate it. Every time.
@@ -342,10 +342,17 @@ function HeroSection() {
                   emoji: "📅",
                   text: "Sunday, April 12 · 7:00 PM IST · Live on Zoom",
                 },
-                { emoji: "🌍", text: "Open globally — all countries welcome" },
                 {
                   emoji: "🎫",
                   text: `₹196 only · ${seatsLeft} seats left · First come, first served`,
+                },
+                {
+                  emoji: "🎙️",
+                  text: "Voice only by choice",
+                },
+                {
+                  emoji: "🌍",
+                  text: "Open globally · No course selling",
                 },
               ].map((b) => (
                 <span
@@ -382,7 +389,7 @@ function HeroSection() {
                 className="btn-amber w-full md:w-auto px-8 py-4 rounded-xl text-lg font-extrabold min-h-[56px]"
                 data-ocid="hero.primary_button"
               >
-                Reserve My Seat &mdash; &#8377;196 &#8594;
+                Reserve My Seat · ₹196 →
               </button>
               <p className="text-sm mt-3" style={{ color: "#64748B" }}>
                 Instant confirmation via email + WhatsApp within 2 minutes of
@@ -419,6 +426,12 @@ function HeroSection() {
                 Live Automation Pipeline
               </p>
               <HeroPipeline />
+              <p
+                className="text-xs text-right mt-2"
+                style={{ color: "#94A3B8" }}
+              >
+                example
+              </p>
             </div>
           </motion.div>
         </div>
@@ -428,7 +441,7 @@ function HeroSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 2 — THE PROBLEM
+// SECTION 2 - THE PROBLEM
 // ═══════════════════════════════════════════════════════════
 const PROBLEM_CARDS = [
   {
@@ -549,24 +562,24 @@ function ProblemSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 3 — WHAT WE BUILD LIVE
+// SECTION 3 - WHAT WE BUILD LIVE
 // ═══════════════════════════════════════════════════════════
 const LIVE_ITEMS = [
   {
     num: "01",
-    title: "Live UiPath bot — built from scratch in front of you.",
+    title: "Live UiPath bot: built from scratch in front of you.",
     body: "We automate a real invoice or data entry process. Live. On screen. You watch every single step.",
     badge: "",
   },
   {
     num: "02",
-    title: "Logic workflow — connecting 4 systems in real time.",
+    title: "Logic workflow: connecting 4 systems in real time.",
     body: "Zero code. Triggered live. Runs automatically the moment we switch it on.",
-    badge: "Workflow automation — no coding required",
+    badge: "Workflow automation · no coding required",
   },
   {
     num: "03",
-    title: "Live Q&A — one real process from the audience.",
+    title: "Live Q&A: one real process from the audience.",
     body: "Describe your manual task in the chat. We map the full automation approach live on screen for everyone to see.",
     badge: "",
   },
@@ -686,8 +699,8 @@ function WhatWeBuildSection() {
             className="text-base sm:text-lg italic leading-relaxed"
             style={{ color: "#334155" }}
           >
-            &#8220;This session is unrecorded. When it ends &#8212; this
-            knowledge lives only in the people who were in this room.{" "}
+            &#8220;This session is unrecorded. When it ends, this knowledge
+            lives only in the people who were in this room.{" "}
             <strong style={{ color: "#0F172A" }}>
               That is exactly the point.
             </strong>
@@ -700,7 +713,7 @@ function WhatWeBuildSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 4 — SPEAKERS
+// SECTION 4 - SPEAKERS
 // ═══════════════════════════════════════════════════════════
 function SpeakersSection() {
   const titleRef = useReveal();
@@ -748,11 +761,11 @@ function SpeakersSection() {
               className="text-base leading-relaxed"
               style={{ color: "#475569" }}
             >
-              An entrepreneur at heart &mdash; wired to spot what others
-              overlook. Parth brings a rare blend of business psychology,
-              marketing instinct, and the relentless ability to identify market
-              gaps before they become obvious. He doesn&apos;t just build
-              businesses &mdash; he architects thinking systems.
+              An entrepreneur at heart, wired to spot what others overlook.
+              Parth brings a rare blend of business psychology, marketing
+              instinct, and the relentless ability to identify market gaps
+              before they become obvious. He doesn&apos;t just build businesses.
+              He architects thinking systems.
             </p>
           </div>
 
@@ -761,41 +774,61 @@ function SpeakersSection() {
             className="reveal reveal-delay-2 sky-card rounded-2xl overflow-hidden"
           >
             <img
-              src="/assets/uploads/image-3-6.png"
+              src="/assets/uploads/automation_mahashri-019d308f-de00-7758-b7b6-f6ce8877e7c6-1.png"
               alt="The Automation Maharishi"
               className="w-full h-52 object-cover object-top"
             />
             <div className="p-8 text-center flex flex-col items-center">
               <h3
-                className="text-xl font-extrabold mb-1"
+                className="text-2xl font-extrabold mb-4"
                 style={{ color: "#0F172A" }}
               >
                 The Automation Maharishi
               </h3>
-              <p
-                className="text-sm font-semibold mb-3"
-                style={{ color: "#1E40AF" }}
+              <div
+                className="text-base leading-relaxed mb-5 text-left w-full"
+                style={{ color: "#334155" }}
               >
-                Identity: Protected. Results: Verified.
-              </p>
-              <p
-                className="text-base leading-relaxed mb-4"
-                style={{ color: "#475569" }}
-              >
-                25+ years automating systems across 40+ industries. He
-                doesn&apos;t appear on camera. He doesn&apos;t need to. His bots
-                speak for him.
-              </p>
-              <span
-                className="inline-block text-xs font-bold px-4 py-2 rounded-full"
-                style={{
-                  background: "#FEF3C7",
-                  color: "#92400E",
-                  border: "1px solid #F59E0B",
-                }}
-              >
-                Joining live &#8212; voice only by choice
-              </span>
+                <p
+                  className="mb-3 italic font-medium text-center"
+                  style={{ color: "#1E40AF" }}
+                >
+                  When your IT team says
+                  <br />
+                  <span className="font-bold text-gray-800">
+                    "this can't be automated"
+                  </span>
+                  <br />
+                  he already has a bot running it.
+                </p>
+                <p className="mb-3">
+                  30+ years building automation systems across banking,
+                  logistics, healthcare, manufacturing, and enterprise
+                  operations.
+                </p>
+                <p className="mb-3">
+                  He won't show his face.
+                  <br />
+                  But on April 12 he will show you exactly what your business is
+                  missing.
+                </p>
+                <p className="font-semibold" style={{ color: "#1E40AF" }}>
+                  Joining live · voice only by choice
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 justify-center mt-1">
+                <span
+                  className="inline-block text-xs font-bold px-4 py-2 rounded-full"
+                  style={{
+                    background: "#DCFCE7",
+                    color: "#166534",
+                    border: "2px solid #22C55E",
+                    boxShadow: "0 0 8px rgba(34,197,94,0.4)",
+                  }}
+                >
+                  ✅ No Course Selling
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -805,13 +838,13 @@ function SpeakersSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 5 — WHO THIS IS FOR
+// SECTION 5 - WHO THIS IS FOR
 // ═══════════════════════════════════════════════════════════
 const FOR_ITEMS = [
-  "You run a business with repetitive processes draining your team's time — store, agency, CA firm, startup — any industry, any country.",
+  "You run a business with repetitive processes draining your team's time: store, agency, CA firm, startup, any industry, any country.",
   'You work in operations or IT and deal with legacy systems that "can\'t be automated."',
-  "You want to see how RPA and Agentic AI actually work — not in theory, but live in front of you.",
-  "You're based anywhere in the world — India, UAE, UK, US, Singapore, or anywhere else.",
+  "You want to see how RPA and Agentic AI actually work: not in theory, but live in front of you.",
+  "You're based anywhere in the world: India, UAE, UK, US, Singapore, or anywhere else.",
   "You want a practical advantage your competitors haven't figured out yet.",
 ];
 const NOT_FOR_ITEMS = [
@@ -894,7 +927,7 @@ function WhoItIsForSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 6 — FOMO
+// SECTION 6 - FOMO
 // ═══════════════════════════════════════════════════════════
 const FOMO_CARDS = [
   {
@@ -909,7 +942,7 @@ const FOMO_CARDS = [
     border: "#1E40AF",
     bg: "rgba(239,246,255,0.8)",
     title: "Seats are first come, first served.",
-    body: "When capacity is hit — registration closes. No exceptions.",
+    body: "When capacity is hit, registration closes. No exceptions.",
   },
   {
     Icon: Zap,
@@ -978,7 +1011,7 @@ function FOMOSection() {
             className="btn-amber w-full md:w-auto px-10 py-4 rounded-xl text-lg font-extrabold min-h-[56px]"
             data-ocid="fomo.primary_button"
           >
-            Secure My Seat &mdash; &#8377;196 &#8594;
+            Secure My Seat · ₹196 →
           </button>
           <p className="text-sm mt-3" style={{ color: "#64748B" }}>
             Attendees joining from India, UAE, UK, USA, Singapore, Australia and
@@ -993,7 +1026,7 @@ function FOMOSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 7 — REGISTRATION
+// SECTION 7 - REGISTRATION
 // ═══════════════════════════════════════════════════════════
 function RegistrationSection() {
   const [form, setForm] = useState({
@@ -1230,7 +1263,7 @@ function RegistrationSection() {
           >
             {isPending
               ? "Saving registration..."
-              : "Proceed to Payment — ₹196 →"}
+              : "Proceed to Payment · ₹196 →"}
           </button>
 
           <p className="text-sm text-center mt-4" style={{ color: "#64748B" }}>
@@ -1246,7 +1279,7 @@ function RegistrationSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 8 — CREDIBILITY
+// SECTION 8 - CREDIBILITY
 // ═══════════════════════════════════════════════════════════
 const STATS = [
   { target: 1200, suffix: "+", prefix: "", label: "Businesses Served" },
@@ -1304,7 +1337,7 @@ function CredibilitySection() {
           style={{ color: "#475569" }}
         >
           This isn&apos;t a startup teaching a concept. This is a practitioner
-          firm showing you exactly what we do for clients &mdash;{" "}
+          firm showing you exactly what we do for clients:{" "}
           <strong style={{ color: "#0F172A" }}>live, in 90 minutes.</strong>
         </p>
       </div>
@@ -1313,7 +1346,7 @@ function CredibilitySection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 9 — CAA SERVICES
+// SECTION 9 - CAA SERVICES
 // ═══════════════════════════════════════════════════════════
 const SERVICES = [
   { Icon: Bot, label: "RPA & Intelligent Automation" },
@@ -1426,7 +1459,7 @@ function ServicesSection() {
           style={{ color: "#64748B" }}
         >
           Interested in a structured beginner-to-advanced automation programme?
-          Let us know at the session &mdash; if there&apos;s enough interest,
+          Let us know at the session: if there&apos;s enough interest,
           we&apos;ll build it at the lowest price in the market.
         </p>
       </div>
@@ -1435,7 +1468,7 @@ function ServicesSection() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// SECTION 10 — FINAL CTA
+// SECTION 10 - FINAL CTA
 // ═══════════════════════════════════════════════════════════
 function FinalCTASection() {
   return (
@@ -1478,7 +1511,7 @@ function FinalCTASection() {
           className="text-3xl sm:text-5xl font-display font-extrabold mb-8 leading-tight"
           style={{ color: "white" }}
         >
-          The seat you don&apos;t book today &mdash;
+          The seat you don&apos;t book today
           <br />
           <span style={{ color: "#FDE68A" }}>
             someone else is booking right now.
@@ -1490,7 +1523,7 @@ function FinalCTASection() {
           className="btn-amber w-full sm:w-auto px-12 py-5 rounded-2xl text-xl font-extrabold min-h-[60px] mb-6"
           data-ocid="finalcta.primary_button"
         >
-          Reserve My Seat &mdash; &#8377;196 &#8594;
+          Reserve My Seat · ₹196 →
         </button>
         <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
           April 12 &middot; 7:00 PM IST &middot; Live on Zoom
@@ -1533,8 +1566,7 @@ function Footer() {
               </span>
             </a>
             <p className="text-sm leading-relaxed" style={{ color: "#94A3B8" }}>
-              Company Avenue Advisory &mdash; Bridging expertise with
-              automation.
+              Company Avenue Advisory: Bridging expertise with automation.
             </p>
           </div>
           <div>
@@ -1608,7 +1640,7 @@ function StickyMobileBar() {
         style={{ color: "#0F172A", background: "transparent" }}
         data-ocid="sticky.primary_button"
       >
-        Reserve My Seat &mdash; &#8377;196 &#8594;
+        Reserve My Seat · ₹196 →
       </button>
     </div>
   );

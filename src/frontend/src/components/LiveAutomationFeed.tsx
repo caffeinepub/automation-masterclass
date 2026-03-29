@@ -191,23 +191,37 @@ export default function LiveAutomationFeed() {
           </div>
         </div>
         <div
-          className="text-center px-3 py-2 rounded-xl"
+          className="text-center px-4 py-2 rounded-xl"
           style={{
             background: "rgba(5,150,105,0.08)",
             border: "1px solid rgba(5,150,105,0.2)",
           }}
         >
           <p
-            className="text-2xl font-extrabold"
-            style={{
-              color: "#059669",
-              textShadow: "0 0 12px rgba(5,150,105,0.3)",
-            }}
+            className="text-xs font-semibold mb-0.5"
+            style={{ color: "#64748B" }}
           >
-            0
+            Hours wasted
           </p>
-          <p className="text-xs font-semibold" style={{ color: "#059669" }}>
-            with automation
+          <div className="flex items-baseline gap-1 justify-center">
+            <p
+              className="text-2xl font-extrabold"
+              style={{
+                color: "#059669",
+                textShadow: "0 0 12px rgba(5,150,105,0.3)",
+              }}
+            >
+              0
+            </p>
+            <span className="text-xs font-bold" style={{ color: "#059669" }}>
+              hrs
+            </span>
+          </div>
+          <p className="text-xs font-bold" style={{ color: "#059669" }}>
+            ✓ Automation handles it
+          </p>
+          <p className="text-xs mt-0.5" style={{ color: "#94A3B8" }}>
+            vs {formatBigNum(wastedHrs)} manually
           </p>
         </div>
       </div>
