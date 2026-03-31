@@ -1116,6 +1116,18 @@ function RegistrationSection() {
           )}
         </div>
 
+        <div className="mb-6 rounded-xl border border-blue-200 bg-blue-50 px-5 py-4 text-sm text-blue-800 space-y-2">
+          <p>
+            ⚠️ Do not close or open a new window/tab — after the payment you will
+            be redirected to our WhatsApp community where you will receive
+            updates and the Zoom link for the webinar.
+          </p>
+          <p>
+            📩 Do check your inbox or spam folder after the payment to get the
+            confirmation mail.
+          </p>
+        </div>
+
         <form
           onSubmit={handleSubmit}
           className="sky-card rounded-2xl p-8"
