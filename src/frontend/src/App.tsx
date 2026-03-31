@@ -270,8 +270,6 @@ const HERO_WORDS = [
 ];
 
 function HeroSection() {
-  const { data: seats } = useRemainingSeats();
-  const seatsLeft = seats ? Number(seats) : 200;
   return (
     <section
       className="pt-20 pb-16 px-6 relative overflow-hidden"
@@ -344,7 +342,7 @@ function HeroSection() {
                 },
                 {
                   emoji: "🎫",
-                  text: `₹196 only · ${seatsLeft} seats left · First come, first served`,
+                  text: "₹196 only · First come, first served",
                 },
                 {
                   emoji: "🎙️",
@@ -1040,6 +1038,7 @@ function RegistrationSection() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const { mutateAsync: register, isPending } = useRegister();
   const { data: seats } = useRemainingSeats();
+  const seatsLeft = seats ? Number(seats) : 200;
 
   function validate() {
     const e: Record<string, string> = {};
@@ -1111,16 +1110,11 @@ function RegistrationSection() {
             className="text-lg font-extrabold mb-1"
             style={{ color: "#DC2626" }}
           >
-            200 seats left
+            {seatsLeft} seats left
           </p>
           <p className="text-xl font-semibold" style={{ color: "#1E40AF" }}>
             Takes 60 seconds.
           </p>
-          {seats !== undefined && (
-            <p className="text-sm mt-2 font-bold" style={{ color: "#DC2626" }}>
-              &#9888; Only {Number(seats)} seats remaining
-            </p>
-          )}
         </div>
 
         <div className="mb-6 space-y-3">
