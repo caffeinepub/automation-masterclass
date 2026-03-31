@@ -226,45 +226,47 @@ export default function LiveAutomationFeed() {
         </div>
       </div>
 
-      {/* Event feed */}
+      {/* Event feed — fixed height so new items never cause layout shift */}
       <div
-        className="px-3 sm:px-4 py-2 sm:py-3 space-y-1.5 sm:space-y-2"
-        style={{ minHeight: 140 }}
+        className="px-3 sm:px-4 py-2 sm:py-3"
+        style={{ height: 172, overflow: "hidden" }}
       >
-        {feed.map((event, i) => (
-          <div
-            key={event.id}
-            className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-xl"
-            style={{
-              background: i === 0 ? `${event.color}08` : "transparent",
-              border:
-                i === 0
-                  ? `1px solid ${event.color}25`
-                  : "1px solid transparent",
-              opacity: 1 - i * 0.15,
-              transition: "all 0.4s ease",
-              boxShadow: i === 0 ? `0 0 12px ${event.color}12` : "none",
-            }}
-          >
-            <span className="text-sm sm:text-base">{event.icon}</span>
-            <span
-              className="flex-1 text-xs font-semibold"
-              style={{ color: "#1E3A5F" }}
-            >
-              {event.text}
-            </span>
-            <span
-              className="text-xs font-mono px-1 sm:px-1.5 py-0.5 rounded"
+        <div className="flex flex-col gap-1.5 sm:gap-2">
+          {feed.slice(0, 4).map((event, i) => (
+            <div
+              key={event.id}
+              className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-xl"
               style={{
-                background: `${event.color}10`,
-                color: event.color,
-                fontSize: 10,
+                background: i === 0 ? `${event.color}08` : "transparent",
+                border:
+                  i === 0
+                    ? `1px solid ${event.color}25`
+                    : "1px solid transparent",
+                opacity: 1 - i * 0.15,
+                transition: "opacity 0.4s ease",
+                boxShadow: i === 0 ? `0 0 12px ${event.color}12` : "none",
               }}
             >
-              {event.time}
-            </span>
-          </div>
-        ))}
+              <span className="text-sm sm:text-base">{event.icon}</span>
+              <span
+                className="flex-1 text-xs font-semibold"
+                style={{ color: "#1E3A5F" }}
+              >
+                {event.text}
+              </span>
+              <span
+                className="text-xs font-mono px-1 sm:px-1.5 py-0.5 rounded"
+                style={{
+                  background: `${event.color}10`,
+                  color: event.color,
+                  fontSize: 10,
+                }}
+              >
+                {event.time}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Footer stats */}
