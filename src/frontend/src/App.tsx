@@ -263,7 +263,7 @@ function Navbar() {
 const HERO_WORDS = [
   { word: "When", accent: false },
   { word: "AI", accent: true },
-  { word: "Stops", accent: false },
+  { word: "Stops,", accent: false },
   { word: "Real", accent: false },
   { word: "Automation", accent: true },
   { word: "Begins.", accent: false },
@@ -271,7 +271,7 @@ const HERO_WORDS = [
 
 function HeroSection() {
   const { data: seats } = useRemainingSeats();
-  const seatsLeft = seats ? Number(seats) : 43;
+  const seatsLeft = seats ? Number(seats) : 200;
   return (
     <section
       className="pt-20 pb-16 px-6 relative overflow-hidden"
@@ -593,6 +593,7 @@ function WhatWeBuildSection() {
   const itemRefs = [item0, item1, item2];
   const calloutRef = useReveal();
   const flowRef = useReveal();
+  const isoRef = useReveal();
 
   return (
     <section
@@ -685,7 +686,7 @@ function WhatWeBuildSection() {
         </div>
 
         {/* 3D Isometric Automation Diagram */}
-        <div className="reveal mt-6">
+        <div ref={isoRef} className="reveal mt-6">
           <div className="sky-card rounded-2xl p-6">
             <IsometricDiagram />
           </div>
@@ -1106,6 +1107,12 @@ function RegistrationSection() {
           >
             Reserve your seat.
           </h2>
+          <p
+            className="text-lg font-extrabold mb-1"
+            style={{ color: "#DC2626" }}
+          >
+            200 seats left
+          </p>
           <p className="text-xl font-semibold" style={{ color: "#1E40AF" }}>
             Takes 60 seconds.
           </p>
