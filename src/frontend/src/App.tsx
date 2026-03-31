@@ -1116,18 +1116,23 @@ function RegistrationSection() {
           )}
         </div>
 
-        <div className="mb-6 rounded-xl border border-blue-200 bg-blue-50 px-5 py-4 text-sm text-blue-800 space-y-2">
-          <p>
-            ⚠️ Do not close or open a new window/tab — after the payment you will
-            be redirected to our WhatsApp community where you will receive
-            updates and the Zoom link for the webinar.
-          </p>
-          <p>
-            📩 Do check your inbox or spam folder after the payment to get the
-            confirmation mail.
-          </p>
+        <div className="mb-6 space-y-3">
+          <div className="flex items-start gap-3 rounded-xl border-2 border-amber-400 bg-amber-50 px-5 py-4">
+            <span className="text-xl mt-0.5">⚠️</span>
+            <p className="text-sm sm:text-base font-bold leading-snug text-amber-900">
+              Don&apos;t close, refresh, or open a new tab/window during
+              payment. After successful payment via Razorpay, you&apos;ll be
+              automatically redirected to our WhatsApp group for updates &amp;
+              the Zoom link.
+            </p>
+          </div>
+          <div className="flex items-start gap-3 rounded-xl border-2 border-blue-400 bg-blue-50 px-5 py-4">
+            <span className="text-xl mt-0.5">📩</span>
+            <p className="text-sm sm:text-base font-bold leading-snug text-blue-900">
+              Check your email (Inbox/Spam/Promotions) for confirmation.
+            </p>
+          </div>
         </div>
-
         <form
           onSubmit={handleSubmit}
           className="sky-card rounded-2xl p-8"
