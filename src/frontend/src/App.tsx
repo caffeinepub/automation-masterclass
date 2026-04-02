@@ -1063,7 +1063,9 @@ function RegistrationSection() {
         country: form.city.trim() || "Global",
       });
       toast.success("Registration saved! Redirecting to payment...");
-      setTimeout(() => window.open(RAZORPAY_URL, "_blank"), 800);
+      setTimeout(() => {
+        window.location.href = RAZORPAY_URL;
+      }, 800);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       if (msg.toLowerCase().includes("already")) {
@@ -1072,7 +1074,7 @@ function RegistrationSection() {
         );
       } else {
         toast.success("Redirecting to payment...");
-        window.open(RAZORPAY_URL, "_blank");
+        window.location.href = RAZORPAY_URL;
       }
     }
   }
