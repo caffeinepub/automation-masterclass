@@ -48,16 +48,10 @@ function useCountUp(target: number, duration = 1800) {
 const scrollToRegister = () =>
   document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
 
-// ── Typewriter headline ───────────────────────────────────────────────────
-const HEADLINE =
-  "AI can think.\nAPIs can connect.\nBut only automation can DO.";
-const HEADLINE_LINES = HEADLINE.split("\n");
-
-function TypewriterHeadline() {
-  const [displayed, setDisplayed] = useState("");
-  const [started, setStarted] = useState(false);
-  const [done, setDone] = useState(false);
+// ── CORRECTION 1: New multi-line headline (replaces typewriter) ───────────
+function NewHeadline() {
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -65,7 +59,7 @@ function TypewriterHeadline() {
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setStarted(true);
+          setVisible(true);
           obs.disconnect();
         }
       },
@@ -75,63 +69,56 @@ function TypewriterHeadline() {
     return () => obs.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!started) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setDisplayed(HEADLINE.slice(0, i));
-      if (i >= HEADLINE.length) {
-        clearInterval(interval);
-        setDone(true);
-      }
-    }, 45);
-    return () => clearInterval(interval);
-  }, [started]);
-
-  const lines = displayed.split("\n");
-
   return (
-    <div ref={ref}>
+    <div
+      ref={ref}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transition: "opacity 0.6s ease, transform 0.6s ease",
+      }}
+    >
       <h2
         style={{
           fontFamily: "'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif",
           fontSize: "clamp(2rem, 5vw, 3.5rem)",
           fontWeight: 800,
-          color: "#ffffff",
-          lineHeight: 1.2,
-          minHeight: "4.5em",
-          whiteSpace: "pre-line",
+          lineHeight: 1.25,
           margin: 0,
         }}
       >
-        {lines.map((line, idx) => (
-          // biome-ignore lint/suspicious/noArrayIndexKey: fixed-length lines from static string
-          <span key={idx} style={{ display: "block" }}>
-            {idx === lines.length - 1 && !done ? (
-              <>
-                {line}
-                <span
-                  style={{
-                    borderRight: "3px solid #00D9FF",
-                    marginLeft: 2,
-                    display: "inline-block",
-                    animation: "cursor-blink 0.7s step-end infinite",
-                  }}
-                />
-              </>
-            ) : (
-              line
-            )}
-          </span>
-        ))}
-        {/* Invisible placeholders to prevent layout shift */}
-        {lines.length < HEADLINE_LINES.length &&
-          HEADLINE_LINES.slice(lines.length).map((line) => (
-            <span key={line} style={{ display: "block", opacity: 0 }}>
-              {line}
-            </span>
-          ))}
+        {/* Line 1 — bold white */}
+        <span style={{ display: "block", color: "#ffffff" }}>
+          AI can think.
+        </span>
+        {/* Line 2 — bold white */}
+        <span
+          style={{ display: "block", color: "#ffffff", marginTop: "0.15em" }}
+        >
+          Hyped AI tools and API workflows <br style={{ display: "none" }} />
+          are already old news.
+        </span>
+        {/* Line 3 — bold electric blue, slightly larger */}
+        <span
+          style={{
+            display: "block",
+            color: "#3B82F6",
+            fontSize: "clamp(2.2rem, 5.5vw, 4rem)",
+            marginTop: "0.2em",
+          }}
+        >
+          Where APIs stop —
+          <br />
+          UiPath RPA begins.
+        </span>
+        {/* Line 4 — bold white */}
+        <span
+          style={{ display: "block", color: "#ffffff", marginTop: "0.2em" }}
+        >
+          The real game starts
+          <br />
+          beyond the API key.
+        </span>
       </h2>
     </div>
   );
@@ -167,8 +154,9 @@ function SectionOpener() {
         The Truth Nobody Is Telling You
       </div>
 
-      <TypewriterHeadline />
+      <NewHeadline />
 
+      {/* CORRECTION 1: New subtext */}
       <div
         ref={subtextRef}
         className="reveal reveal-delay-2"
@@ -176,14 +164,31 @@ function SectionOpener() {
           color: "rgba(255,255,255,0.75)",
           fontSize: "1.05rem",
           lineHeight: 1.7,
-          marginTop: 24,
+          marginTop: 28,
           marginBottom: 40,
-          whiteSpace: "pre-line",
         }}
       >
-        {
-          "While the world rushes to learn ChatGPT\nand N8N workflows \u2014 the real work\nis still being done manually.\nUntil now."
-        }
+        <p style={{ margin: "0 0 16px 0" }}>
+          Every tool you have heard about —<br />
+          N8N, Zapier, ChatGPT agents,
+          <br />
+          API workflows — they all hit a wall
+          <br />
+          the moment an API key does not exist.
+        </p>
+        <p style={{ margin: "0 0 16px 0" }}>
+          UiPath RPA does not need
+          <br />
+          permission from any system.
+          <br />
+          No API key. No integration.
+          <br />
+          No limit.
+        </p>
+        <p style={{ margin: 0 }}>
+          If a human can see it on a screen —<br />
+          UiPath can automate it.
+        </p>
       </div>
 
       {/* Animated cyan line */}
@@ -400,19 +405,25 @@ function ComparisonColumns() {
               You still have to do it yourself.
             </p>
           </div>
+          {/* CORRECTION 2: Updated Column 1 bottom badge */}
           <div
             style={{
               marginTop: 14,
               background: "rgba(220,38,38,0.2)",
               border: "1px solid #dc2626",
               borderRadius: 8,
-              padding: "8px 12px",
+              padding: "10px 12px",
               fontSize: "0.8rem",
               color: "#fca5a5",
               textAlign: "center",
+              lineHeight: 1.6,
             }}
           >
-            Tells you what to do. Cannot do it for you.
+            Tells you what to do.
+            <br />
+            Cannot do it for you.
+            <br />
+            Needs human to execute.
           </div>
         </div>
 
@@ -490,19 +501,25 @@ function ComparisonColumns() {
               Workflow stops. Human takes over again.
             </p>
           </div>
+          {/* CORRECTION 2: Updated Column 2 bottom badge */}
           <div
             style={{
               marginTop: 14,
               background: "rgba(220,38,38,0.2)",
               border: "1px solid #dc2626",
               borderRadius: 8,
-              padding: "8px 12px",
+              padding: "10px 12px",
               fontSize: "0.8rem",
               color: "#fca5a5",
               textAlign: "center",
+              lineHeight: 1.6,
             }}
           >
-            Works only if an API exists. Most real systems have no API.
+            Fully dependent on API keys.
+            <br />
+            No API = No automation.
+            <br />
+            Real businesses mostly have no API.
           </div>
         </div>
 
@@ -611,21 +628,26 @@ function ComparisonColumns() {
               Done in 3 minutes. Zero human involvement.
             </p>
           </div>
+          {/* CORRECTION 2: Updated Column 3 bottom badge */}
           <div
             style={{
               marginTop: 14,
               background: "rgba(0,217,255,0.1)",
               border: "1px solid #00D9FF",
               borderRadius: 8,
-              padding: "8px 12px",
+              padding: "10px 12px",
               fontSize: "0.8rem",
               color: "#00D9FF",
               textAlign: "center",
               boxShadow: "0 0 12px rgba(0,217,255,0.2)",
+              lineHeight: 1.6,
             }}
           >
-            Goes where AI stops. Goes where APIs stop. Replaces the human
-            entirely.
+            Zero API needed. Ever.
+            <br />
+            Works on any screen a human can see.
+            <br />
+            Where APIs stop — UiPath begins.
           </div>
         </div>
       </div>
@@ -1374,11 +1396,12 @@ function CounterRow() {
   );
 }
 
-// ── Mic Drop Line ─────────────────────────────────────────────────────────
+// ── CORRECTION 3: Mic Drop Line (updated) ────────────────────────────────
 function MicDropLine() {
   const line1Ref = useReveal();
   const line2Ref = useReveal();
   const line3Ref = useReveal();
+  const line4Ref = useReveal();
   const subtextRef = useReveal();
 
   return (
@@ -1389,6 +1412,7 @@ function MicDropLine() {
         background: "#001a3d",
       }}
     >
+      {/* Line 1 — bold white */}
       <div
         ref={line1Ref}
         className="reveal"
@@ -1400,8 +1424,9 @@ function MicDropLine() {
           marginBottom: 8,
         }}
       >
-        AI can suggest.
+        ChatGPT can suggest.
       </div>
+      {/* Line 2 — bold white */}
       <div
         ref={line2Ref}
         className="reveal reveal-delay-1"
@@ -1410,38 +1435,56 @@ function MicDropLine() {
           fontWeight: 800,
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           color: "#ffffff",
-          marginBottom: 16,
+          marginBottom: 8,
         }}
       >
-        APIs can connect.
+        N8N can connect — if the API exists.
       </div>
+      {/* Line 3 — bold white */}
       <div
         ref={line3Ref}
         className="reveal reveal-delay-2"
         style={{
           fontFamily: "'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif",
           fontWeight: 800,
-          fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-          color: "#3B82F6",
-          marginBottom: 32,
+          fontSize: "clamp(1.8rem, 4vw, 3rem)",
+          color: "#ffffff",
+          marginBottom: 20,
         }}
       >
-        But only RPA automation can replace.
+        Agentic AI can decide — but cannot act.
       </div>
+      {/* Line 4 — bold electric blue, very large */}
+      <div
+        ref={line4Ref}
+        className="reveal reveal-delay-3"
+        style={{
+          fontFamily: "'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif",
+          fontWeight: 800,
+          fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+          color: "#3B82F6",
+          marginBottom: 28,
+          lineHeight: 1.2,
+        }}
+      >
+        UiPath RPA replaces the human entirely.
+      </div>
+      {/* Bold cyan subtext */}
       <div
         ref={subtextRef}
         className="reveal reveal-delay-3"
         style={{
-          color: "rgba(255,255,255,0.7)",
-          fontSize: "1rem",
+          color: "#00D9FF",
+          fontWeight: 700,
+          fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
           lineHeight: 1.7,
-          maxWidth: 500,
+          maxWidth: 520,
           margin: "0 auto",
           whiteSpace: "pre-line",
         }}
       >
         {
-          "This is what The Automation Maharishi\nhas been doing for 30+ years.\nOn April 12 \u2014 he shows you exactly how."
+          "No API needed. No permission needed.\nNo limit. The real automation\nstarts where everything else stops."
         }
       </div>
     </div>
