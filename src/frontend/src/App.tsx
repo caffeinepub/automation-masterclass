@@ -29,6 +29,7 @@ import HeroPipeline from "./components/HeroPipeline";
 import IsometricDiagram from "./components/IsometricDiagram";
 import LiveAutomationFeed from "./components/LiveAutomationFeed";
 import TechOrbit from "./components/TechOrbit";
+import WhyThisMattersSection from "./components/WhyThisMattersSection";
 import WorkflowAnimation from "./components/WorkflowAnimation";
 import { useRegister, useRemainingSeats } from "./hooks/useQueries";
 
@@ -1676,6 +1677,7 @@ export default function App() {
       <Navbar />
       <main>
         <HeroSection />
+        <WhyThisMattersSection />
         <ProblemSection />
         <WhatWeBuildSection />
         <SpeakersSection />
