@@ -136,7 +136,7 @@ function SectionOpener() {
         maxWidth: 800,
         margin: "0 auto",
         textAlign: "center",
-        padding: "80px 24px 0",
+        padding: "clamp(40px, 6vw, 80px) 20px 0",
       }}
     >
       <div
@@ -322,11 +322,14 @@ function ComparisonColumns() {
   };
 
   return (
-    <div ref={containerRef} style={{ padding: "60px 24px 0" }}>
+    <div
+      ref={containerRef}
+      style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}
+    >
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
           gap: 24,
           maxWidth: 1100,
           margin: "0 auto",
@@ -661,7 +664,7 @@ function AhaMomentBox() {
   const textRef = useReveal();
 
   return (
-    <div style={{ padding: "60px 24px 0" }}>
+    <div style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}>
       <div
         ref={boxRef}
         className="reveal"
@@ -685,7 +688,7 @@ function AhaMomentBox() {
           }}
         >
           {/* LEFT — Without RPA */}
-          <div style={{ flex: "1 1 220px", textAlign: "center" }}>
+          <div style={{ flex: "1 1 140px", textAlign: "center" }}>
             <div
               style={{
                 color: "#ef4444",
@@ -776,7 +779,7 @@ function AhaMomentBox() {
           </div>
 
           {/* RIGHT — With RPA */}
-          <div style={{ flex: "1 1 220px", textAlign: "center" }}>
+          <div style={{ flex: "1 1 140px", textAlign: "center" }}>
             <div
               style={{
                 color: "#00D9FF",
@@ -880,7 +883,7 @@ function LiveAutomationDemo() {
   }, []);
 
   return (
-    <div style={{ padding: "60px 24px 0" }}>
+    <div style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}>
       <div
         ref={labelRef}
         className="reveal"
@@ -897,11 +900,12 @@ function LiveAutomationDemo() {
           margin: "0 auto",
           background: "#000d1a",
           borderRadius: 16,
-          padding: "32px 24px",
+          padding: "32px 20px",
           border: "1px solid rgba(0,217,255,0.2)",
         }}
       >
         <div
+          className="why-live-demo-steps"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -949,6 +953,7 @@ function LiveAutomationDemo() {
               </div>
               {i < DEMO_STEPS.length - 1 && (
                 <div
+                  className="why-live-demo-arrow"
                   style={{
                     color: activeStep > i ? "#00D9FF" : "rgba(255,255,255,0.2)",
                     fontSize: "1.2rem",
@@ -1044,7 +1049,7 @@ function IndustryGrid() {
   const ctaRef = useReveal();
 
   return (
-    <div style={{ padding: "60px 24px 0" }}>
+    <div style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}>
       <div
         ref={headlineRef}
         className="reveal"
@@ -1187,7 +1192,7 @@ function PatternRevealBox() {
   }, []);
 
   return (
-    <div style={{ padding: "60px 24px 0" }}>
+    <div style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}>
       <div
         ref={boxRef}
         className="reveal"
@@ -1197,7 +1202,7 @@ function PatternRevealBox() {
           background: "#000d1a",
           border: "2px solid rgba(0,217,255,0.4)",
           borderRadius: 20,
-          padding: "48px 40px",
+          padding: "clamp(24px, 4vw, 48px) clamp(18px, 4vw, 40px)",
           animation: "cyan-glow-pulse 2s ease-in-out infinite",
           position: "relative",
           overflow: "hidden",
@@ -1327,7 +1332,7 @@ function CounterRow() {
   ];
 
   return (
-    <div style={{ padding: "60px 24px 0" }}>
+    <div style={{ padding: "clamp(32px, 5vw, 60px) 20px 0" }}>
       <div
         style={{
           maxWidth: 900,
@@ -1407,7 +1412,7 @@ function MicDropLine() {
   return (
     <div
       style={{
-        padding: "80px 24px 0",
+        padding: "clamp(40px, 6vw, 80px) 20px 0",
         textAlign: "center",
         background: "#001a3d",
       }}
@@ -1499,7 +1504,10 @@ function MiniCTA() {
     <div
       ref={ctaRef}
       className="reveal"
-      style={{ padding: "60px 24px 80px", textAlign: "center" }}
+      style={{
+        padding: "clamp(32px, 5vw, 60px) 20px clamp(40px, 6vw, 80px)",
+        textAlign: "center",
+      }}
     >
       <p
         style={{

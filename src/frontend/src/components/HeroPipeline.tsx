@@ -55,7 +55,7 @@ export default function HeroPipeline() {
   const dotY = VIEWBOX_H / 2;
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ overflowX: "hidden" }}>
       <svg
         viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
         className="w-full h-auto"

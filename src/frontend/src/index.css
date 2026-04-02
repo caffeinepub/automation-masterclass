@@ -372,3 +372,25 @@
     display: none;
   }
 }
+
+/* ── Mobile phone responsiveness (< 480px) ──────────────────── */
+@media (max-width: 480px) {
+  /* Live automation demo steps: stack vertically on small phones */
+  .why-live-demo-steps {
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+  .why-live-demo-steps > * {
+    min-width: unset !important;
+    width: 100%;
+  }
+  /* Hide arrows between steps on mobile */
+  .why-live-demo-arrow {
+    display: none !important;
+  }
+
+  /* Tighten industry card padding on very small screens */
+  .industry-card {
+    padding: 14px !important;
+  }
+}
