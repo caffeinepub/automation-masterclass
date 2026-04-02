@@ -1405,7 +1405,6 @@ function CounterRow() {
 function MicDropLine() {
   const line1Ref = useReveal();
   const line2Ref = useReveal();
-  const line3Ref = useReveal();
   const line4Ref = useReveal();
   const subtextRef = useReveal();
 
@@ -1440,24 +1439,10 @@ function MicDropLine() {
           fontWeight: 800,
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           color: "#ffffff",
-          marginBottom: 8,
-        }}
-      >
-        N8N can connect — if the API exists.
-      </div>
-      {/* Line 3 — bold white */}
-      <div
-        ref={line3Ref}
-        className="reveal reveal-delay-2"
-        style={{
-          fontFamily: "'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif",
-          fontWeight: 800,
-          fontSize: "clamp(1.8rem, 4vw, 3rem)",
-          color: "#ffffff",
           marginBottom: 20,
         }}
       >
-        Agentic AI can decide — but cannot act.
+        N8N can connect — if the API exists.
       </div>
       {/* Line 4 — bold electric blue, very large */}
       <div
